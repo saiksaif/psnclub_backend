@@ -3,6 +3,8 @@ const mongoose = require('mongoose');
 const dotenv = require('dotenv');
 const cors = require('cors');
 
+const routes = require('./routes/taskRoute');
+
 dotenv.config();
 
 const app = express();
@@ -11,10 +13,11 @@ const PORT = process.env.PORT || 8080;
 app.use(express.json());
 app.use(cors());
 
-app.get('/', (req, res) => {
-    console.log('Req recieved');
-    res.send('Main of Project Backend!');
-});
+mongoose.connect(process.env.MONGO_URI).then(()=>{
+    console.log('MongoDB Connected');
+}).catch((err)=>console.log(err)); 
+
+app.use('/api', routes);
 
 app.listen(PORT, () => {
     console.log('Server running on http://localhost:' + PORT);
