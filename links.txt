@@ -1,0 +1,4 @@
+Environment Variables:
+
+MONGO_URI=mongodb+srv://root:root@psnclub.qkon2jh.mongodb.net/CRUD_DB?retryWrites=true&w=majority
+PORT=5050
