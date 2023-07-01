@@ -9,7 +9,7 @@ router.get('/', (req,res)=>{
 
 router.get('/get', getTasks); 
 router.post('/save', saveTask); 
-router.put('/update:id', updateTask); 
-router.delete('/delete:id', deleteTask); 
+router.put('/update/:id', updateTask); 
+router.delete('/delete/:id', deleteTask); 
 
 module.exports = router;

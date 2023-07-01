@@ -38,16 +38,39 @@ module.exports.updateTask = (req,res)=>{
 };
 
 // Delete data
-module.exports.deleteTask = (req,res)=>{
-    const {id} = req.params;
+// module.exports.deleteTask = (req,res)=>{
+//     const {id} = req.params;
 
-    TaskModel.findByIdAndDelete(id).then(()=>{
-        res.send("Deleted successfully...")
-    }).catch((err)=>{
+//     TaskModel.findByIdAndDelete(id).then(()=>{
+//         res.send("Deleted successfully...")
+//     }).catch((err)=>{
+//         console.log(err);
+//         res.send({
+//             error: err,
+//             msg: "Something went wrong!"
+//         });
+//     });
+// };
+// Delete data
+module.exports.deleteTask = (req, res) => {
+    const { id } = req.params;
+  
+    try {
+      TaskModel.findByIdAndDelete(id).then(() => {
+        res.send("Deleted successfully...");
+      }).catch((err) => {
         console.log(err);
         res.send({
-            error: err,
-            msg: "Something went wrong!"
+          error: err,
+          msg: "Something went wrong!"
         });
-    });
-};
+      });
+    } catch (err) {
+      console.log(err);
+      res.send({
+        error: err,
+        msg: "Something went wrong!"
+      });
+    }
+  };
+  
