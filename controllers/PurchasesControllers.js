@@ -1,15 +1,14 @@
-const TaskModel = require('../models/TaskModel');
+const PurchasesModel = require('../models/purchasesModel');
 
-module.exports.getTasks = async (req,res)=>{
-    const task = await TaskModel.find();
+module.exports.getPurchase = async (req,res)=>{
+    const task = await PurchasesModel.find();
     res.send(task);
 };
 
 // Saving Data
-module.exports.saveTask = (req,res)=>{
-    const {task} = req.body;
-
-    TaskModel.create({task}).then((data)=>{
+module.exports.savePurchase = (req,res)=>{
+    const product = req.body;
+    PurchasesModel.create(product).then((data)=>{
         console.log('Saved successfully...');
         res.status(201).send(data);
     }).catch((err)=>{
@@ -22,11 +21,11 @@ module.exports.saveTask = (req,res)=>{
 };
 
 // Updating data
-module.exports.updateTask = (req,res)=>{
+module.exports.updatePurchase = (req,res)=>{
     const {id} = req.params;
     const {task} = req.body;
 
-    TaskModel.findByIdAndUpdate(id, {task}).then(()=>{
+    PurchasesModel.findByIdAndUpdate(id, {task}).then(()=>{
         res.send("Updated successfully...")
     }).catch((err)=>{
         console.log(err);
@@ -52,11 +51,11 @@ module.exports.updateTask = (req,res)=>{
 //     });
 // };
 // Delete data
-module.exports.deleteTask = (req, res) => {
+module.exports.deletePurchase = (req, res) => {
     const { id } = req.params;
   
     try {
-      TaskModel.findByIdAndDelete(id).then(() => {
+        PurchasesModel.findByIdAndDelete(id).then(() => {
         res.send("Deleted successfully...");
       }).catch((err) => {
         console.log(err);
