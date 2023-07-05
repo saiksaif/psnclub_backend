@@ -57,9 +57,11 @@ const productSchema = new mongoose.Schema({
         type: Boolean,
         required: true
     },
-    gameList:[{
+    gameList:{
         type:gamesList,
-    }]
+        required:true
+    }
+    
 
 }); 
 

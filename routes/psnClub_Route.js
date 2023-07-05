@@ -19,7 +19,7 @@ router.post('/savePurchase', savePurchase);
 router.put('/updatePurchase/:id', updatePurchase); 
 router.delete('/deletePurchase/:id', deletePurchase); 
 
-router.get('/login', login); 
+router.post('/login', login); 
 router.post('/signUp', signUp);
 
 module.exports = router;
