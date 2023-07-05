@@ -58,7 +58,7 @@ const productSchema = new mongoose.Schema({
         required: true
     },
     gameList:{
-        type:gamesList,
+        type:[gamesList],
         required:true
     }
     
