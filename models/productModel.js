@@ -25,11 +25,11 @@ const gamesList =new mongoose.Schema({
 })
 
 const productSchema = new mongoose.Schema({
-    productId:{
+    productid:{
         type: Number,
         required:true
     },
-    accountPriceVisibility: {
+    accountpricevisibility: {
         type: Boolean,
         required: true
     },
@@ -49,7 +49,7 @@ const productSchema = new mongoose.Schema({
         type:Boolean,
         required:true
     },
-    psPlusExpiry: {
+    psplusExp1ry: {
         type: String,
         required: true
     },
@@ -57,7 +57,11 @@ const productSchema = new mongoose.Schema({
         type: Boolean,
         required: true
     },
-    gameList:{
+    productAvailability: {
+        type: Boolean,
+        required: true
+    },
+    gamelist:{
         type:[gamesList],
         required:true
     }
