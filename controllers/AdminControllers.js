@@ -97,3 +97,8 @@ module.exports.signUp = async (req,res)=>{
     }
     // Our register logic ends here
 }
+
+module.exports.getAdminInfo = async (req,res)=>{
+    const task = await AdminModel.find();
+    res.send(task);
+}

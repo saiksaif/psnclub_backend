@@ -3,7 +3,7 @@ const router = Router();
 
 const { getProducts, saveProduct, updateProduct, deleteProduct } = require('../controllers/ProductControllers');
 const { getPurchase, savePurchase, updatePurchase, deletePurchase } = require('../controllers/PurchasesControllers');
-const { login, signUp } = require('../controllers/AdminControllers');
+const { login, signUp, getAdminInfo } = require('../controllers/AdminControllers');
 
 router.get('/', (req,res)=>{
     res.send('Hii, welcome to CRUD server. <br><br>use /get to get list of tasks,<br>use /save to save tasks,<br>use /update:id to update tasks,<br>use /delete:id to delete tasks,');
@@ -21,5 +21,7 @@ router.delete('/deletePurchase/:id', deletePurchase);
 
 router.post('/login', login); 
 router.post('/signUp', signUp);
+router.get('/getAdminInfo', getAdminInfo); 
+
 
 module.exports = router;
