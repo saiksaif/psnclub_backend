@@ -24,7 +24,7 @@ module.exports.saveProduct = (req,res)=>{
 
 // Updating data
 module.exports.updateProduct = (req,res)=>{
-    const {id} = req.params;
+    const {id} = req.params.parseInt();
     const {task} = req.body;
 
     productModel.findByIdAndUpdate(id, {task}).then(()=>{
@@ -55,9 +55,10 @@ module.exports.updateProduct = (req,res)=>{
 // Delete data
 module.exports.deleteProduct = (req, res) => {
     const { id } = req.params;
-  
+    const idInString = id.toString()
+    console.log(id)
     try {
-      ProductModel.findByIdAndDelete(id).then(() => {
+      ProductModel.deleteOne({ id: idInString }).then(() => {
         res.send("Deleted successfully...");
       }).catch((err) => {
         console.log(err);
