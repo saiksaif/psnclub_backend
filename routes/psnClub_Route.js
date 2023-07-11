@@ -1,7 +1,7 @@
 const {Router} = require('express');
 const router = Router();
 
-const { getProducts, saveProduct, updateProduct, deleteProduct } = require('../controllers/ProductControllers');
+const { getProducts, saveProduct, updateProduct, updateGame, deleteProduct } = require('../controllers/ProductControllers');
 const { getPurchase, savePurchase, updatePurchase, deletePurchase } = require('../controllers/PurchasesControllers');
 const { login, signUp, getAdminInfo } = require('../controllers/AdminControllers');
 
@@ -12,6 +12,7 @@ router.get('/', (req,res)=>{
 router.get('/getProducts', getProducts); 
 router.post('/saveProduct', saveProduct); 
 router.put('/updateProduct/:id', updateProduct); 
+router.put('/updateGame/:id', updateGame); 
 router.delete('/deleteProduct/:id', deleteProduct); 
 
 router.get('/getPurchase', getPurchase); 

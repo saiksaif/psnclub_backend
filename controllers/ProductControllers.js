@@ -54,6 +54,27 @@ module.exports.updateProduct = (req,res)=>{
     });
 };
 
+module.exports.updateGame = (req,res)=>{
+  const { id } = req.params;
+  // const idInString = id.toString()
+    // const {id} = req.params;
+    const game = req.body;
+// 
+    // const result = await collection.updateOne({ productid: id }, { $push: { gamelist: game } })
+
+    ProductModel.updateOne({ _id: id }, { $push: { gamelist: game } }).then(()=>{
+        res.send("Updated successfully...")
+    }).catch((err)=>{
+        console.log(err);
+        res.send({
+            error: err,
+            msg: "Something went wrong!"
+        });
+    });
+};
+
+
+
 // Delete data
 // module.exports.deleteTask = (req,res)=>{
 //     const {id} = req.params;
