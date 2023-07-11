@@ -3,23 +3,23 @@ const mongoose = require('mongoose');
 const gamesList =new mongoose.Schema({
     gameName:{
         type:String,
-        required:true
+        
     },
     description:{
         type:String,
-        required:true
+        
     },
     imageLink:{
         type:String,
-        required:true
+        
     },
     ps4Game:{
         type:Boolean,
-        required:true
+       
     },
     ps5Game:{
         type:Boolean,
-        required:true
+        
     },
 
 })
