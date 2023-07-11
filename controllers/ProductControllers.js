@@ -95,8 +95,8 @@ module.exports.deleteProduct = (req, res) => {
   const idInString = id.toString()
   console.log(id)
   try {
-    ProductModel.deleteOne({ id: idInString }).then(() => {
-      res.send("Deleted successfully...");
+    ProductModel.deleteOne({ productid: idInString }).then((ress) => {
+      res.send("Deleted successfully..."+ress);
     }).catch((err) => {
       console.log(err);
       res.send({
