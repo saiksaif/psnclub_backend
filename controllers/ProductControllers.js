@@ -38,10 +38,12 @@ module.exports.saveProduct = (req,res)=>{
 
 // Updating data
 module.exports.updateProduct = (req,res)=>{
-    const {id} = req.params.parseInt();
-    const {task} = req.body;
+  const { id } = req.params;
+  const idInString = id.toString()
+    // const {id} = req.params;
+    const task = req.body;
 
-    productModel.findByIdAndUpdate(id, {task}).then(()=>{
+    ProductModel.findByIdAndUpdate(idInString, task).then(()=>{
         res.send("Updated successfully...")
     }).catch((err)=>{
         console.log(err);
